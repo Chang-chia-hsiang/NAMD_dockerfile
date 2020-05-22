@@ -1,0 +1,18 @@
+# base on ubuntu16.04
+# install namd in /opt/NAMD/
+
+FROM ubuntu:16.04
+
+MAINTAINER CCH
+
+WORKDIR /opt/NAMD/
+
+RUN apt-get update
+RUN apt-get install gcc -y
+RUN apt-get install g++ -y
+RUN apt-get install csh -y
+RUN apt-get install tcsh -y
+RUN apt-get install wget -y
+ADD https://www.ks.uiuc.edu/Research/namd/cvs/download/741376/NAMD_Git-2020-05-22_Linux-x86_64-multicore.tar.gz ./
+RUN tar xvf NAMD_Git-2020-05-22_Linux-x86_64-multicore.tar.gz
+RUN rm NAMD_Git-2020-05-22_Linux-x86_64-multicore.tar.gz
